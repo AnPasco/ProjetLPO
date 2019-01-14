@@ -7,8 +7,8 @@
 function getId(monId)
 {
   var id=monId;
-  document.getElementById("test").innerHTML = document.getElementById("test").innerHTML + " " + id + ",";
-  document.getElementById("ids").value = document.getElementById("ids").value + id + ",";
+  document.getElementById("test").innerHTML = document.getElementById("test").innerHTML + " " + id;
+  document.getElementById("id_carre").value = document.getElementById("id_carre").value + id + ",";
 }
 </script>
 </body>
