@@ -3,8 +3,8 @@
 
 define('DBHOST', "localhost");
 define('DBNAME', "lpo");
-define('DBUSER', "John");
-define('DBPASSWD', "toto");
+define('DBUSER', "root");
+define('DBPASSWD', "");
 define('ENV','dev');
 define('DBPORT',3306);
 // pour un environememnt de production remplacer 'dev' (d�veloppement) par 'prod' (production)
