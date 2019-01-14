@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 14 jan. 2019 à 16:10
+-- Généré le :  lun. 14 jan. 2019 à 16:20
 -- Version du serveur :  5.7.23
 -- Version de PHP :  7.2.10
 
@@ -65,7 +65,8 @@ CREATE TABLE IF NOT EXISTS `carre` (
   KEY `carre_num` (`carre_num`),
   KEY `enquete_ibfk_1` (`en_num`),
   KEY `enquete_ibfk_2` (`enqueteur`),
-  KEY `enquete_ibfk_3` (`etat`)
+  KEY `enquete_ibfk_3` (`etat`),
+  KEY `enquete_ibfk_4` (`carre_nom`)
 ) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -77,7 +78,8 @@ CREATE TABLE IF NOT EXISTS `carre` (
 DROP TABLE IF EXISTS `carte`;
 CREATE TABLE IF NOT EXISTS `carte` (
   `carte_img` text NOT NULL,
-  `carre_nom` varchar(30) NOT NULL
+  `carre_nom` varchar(30) NOT NULL,
+  PRIMARY KEY (`carre_nom`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -139,16 +141,6 @@ CREATE TABLE IF NOT EXISTS `gallery` (
   PRIMARY KEY (`img_Num`)
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
---
--- Déchargement des données de la table `gallery`
---
-
-INSERT INTO `gallery` (`img_Description`, `img_Nom`, `img_Type`, `img_Num`) VALUES
-('une carte', '465-2075', 'jpg', 1),
-('une carte', '465-2075', 'jpg', 2),
-('une carte', '465-2075', 'jpg', 3),
-('une carte', '465-2085', 'jpg', 4);
-
 -- --------------------------------------------------------
 
 --
@@ -158,7 +150,8 @@ INSERT INTO `gallery` (`img_Description`, `img_Nom`, `img_Type`, `img_Num`) VALU
 DROP TABLE IF EXISTS `kmz`;
 CREATE TABLE IF NOT EXISTS `kmz` (
   `carre_nom` varchar(30) NOT NULL,
-  `KMZ_fichier` mediumblob NOT NULL
+  `KMZ_fichier` mediumblob NOT NULL,
+  PRIMARY KEY (`carre_nom`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
