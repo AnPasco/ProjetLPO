@@ -2,9 +2,9 @@
 // Param�tres du site LPO
 
 define('DBHOST', "localhost");
-define('DBNAME', "lpo");
-define('DBUSER', "John");
-define('DBPASSWD', "toto");
+define('DBNAME', "projet lpo");
+define('DBUSER', "Kurt");
+define('DBPASSWD', "Cobain");
 define('ENV','dev');
 define('DBPORT',3306);
 // pour un environememnt de production remplacer 'dev' (d�veloppement) par 'prod' (production)
