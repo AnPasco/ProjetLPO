@@ -4,6 +4,7 @@ $pdo = new Mypdo();
 $OiseauManager = new OiseauManager($pdo);
 $AdherentManager = new AdherentManager($pdo);
 $ProtocoleManager = new ProtocoleManager($pdo);
+$EnqueteManager = new EnqueteManager($pdo);
 $listeOiseau = $OiseauManager->getAllOiseaux();
 $listeAdherent = $AdherentManager->getAllAdherent();
 $listeProtocole = $ProtocoleManager->getAllProtocole();
@@ -58,7 +59,6 @@ if(!isset($_SESSION['en_nom'])){
 </form>
 <?php
 }else{
-  $EnqueteManager = new EnqueteManager($pdo);
   $Enquete = new Enquete($_POST);
   $ajout = $EnqueteManager->addEnquete($Enquete);
   $_SESSION['en_nom'] = $_POST['en_nom'];
@@ -125,6 +125,19 @@ if(!isset($_SESSION['en_nom'])){
 }
 }else{
 	$CarreManager = new CarreManager($pdo);
+
+	echo $_SESSION['en_nom'];
+	$CarreNumEnquete = $EnqueteManager->getNumByNom($_SESSION['en_nom']);
+	echo $CarreNumEnquete;
+	$retour = $CarreManager->addCarre($CarreNumEnquete);
+
+	if($retour){
+		echo "ok";
+		unset($_SESSION['en_nom']);
+	}else{
+		echo "pas ok";
+		unset($_SESSION['en_nom']);
+	}
 
 }
 

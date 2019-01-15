@@ -2,10 +2,9 @@
 class Carre {
    private $carre_num;
    private $en_num;
-   private $carte_num;
+   private $carre_nom;
    private $enqueteur;
    private $etat_num;
-   private $KMZ_num;
 
    public function __construct($valeurs = array()){
 		if (!empty($valeurs)){
@@ -18,10 +17,9 @@ class Carre {
          switch ($attribut){
             case 'carre_num': $this->setCarreNum($valeur); break;
             case 'en_num': $this->setEnqueteNum($valeur); break;
-            case 'carte_num': $this->setCarteNum($valeur); break;
+            case 'carre_nom': $this->setCarreNom($valeur); break;
             case 'enqueteur': $this->setEnqueteur($valeur); break;
             case 'etat_num': $this->setCarreEtat($valeur); break;
-            case 'KMZ_num': $this->setKMZNum($valeur); break;
          }
       }
    }
@@ -42,6 +40,14 @@ class Carre {
 		return $this->etat_num;
 	}
 
+   public function setCarreNom(){
+      $this->carre_nom=$carre_nom;
+   }
+
+   public function getCarreNom(){
+      return $this->carre_nom;
+   }
+   
    public function setEnqueteNum($en_num){
 		$this->en_num=$en_num;
 	}
@@ -50,28 +56,12 @@ class Carre {
 		return $this->en_num;
 	}
 
-   public function setCarteNum($carte_num){
-		$this->carte_num=$carte_num;
-	}
-
-   public function getCarteNum(){
-		return $this->carte_num;
-	}
-
    public function setEnqueteur($enqueteur){
 		$this->enqueteur=$enqueteur;
 	}
 
    public function getEnqueteur(){
 		return $this->enqueteur;
-	}
-
-   public function setKMZNum($KMZ_num){
-		$this->KMZ_num=$KMZ_num;
-	}
-
-   public function getKMZNum(){
-		return $this->KMZ_num;
 	}
 }
 ?>

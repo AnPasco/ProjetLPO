@@ -21,5 +21,15 @@ class EnqueteManager{
       $retour=$requete->execute();
 		return $retour;
   }
+
+  public function getNumByNom($nom){
+	  $requete = $this->db->prepare(
+		  'SELECT en_num FROM enquetes WHERE en_nom = :nom');
+
+		$requete->bindValue(':nom', $nom);
+
+		$retour=$requete->execute();
+		return $retour;
+  }
 }
 ?>

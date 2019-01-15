@@ -6,13 +6,16 @@ class CarreManager{
 		$this->db=$db;
 	}
 
-   public function addCarre($Carre){
+   public function addCarre($CarreNumEnquete){
       $requete = $this->db->prepare(
-	      'INSERT INTO carre (carre_num, etat)
-         VALUES (:car_num, :car_etat,);');
+	      'INSERT INTO carre (en_num, carte_num, enqueteur, etat, KMZ_num)
+         VALUES ( :en_num, :carte_num, :enqueteur, :etat, :KMZ_num);');
 
-      $requete->bindValue(':car_num',$Carre->getCarreNum());
-      $requete->bindValue(':car_etat',$Carre->getCarreEtat());
+      $requete->bindValue(':en_num',$CarreNumEnquete);
+		$requete->bindValue(':carte_num', '2');
+		$requete->bindValue(':enqueteur', '2');
+		$requete->bindValue(':etat', '2');
+		$requete->bindValue(':KMZ_num', '2');
 
       $retour=$requete->execute();
 		return $retour;
