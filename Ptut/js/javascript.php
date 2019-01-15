@@ -7,38 +7,46 @@ function ajouteEvent(objet, typeEvent, nomFonction, typePropagation){
   }
 }
 
-function getId(monId)
-{
-  var id = monId;
-  document.getElementById("test").innerHTML = document.getElementById("test").innerHTML + " " + id + ",";
-  document.getElementById("ids").value = document.getElementById("ids").value + id + ",";
-}
+var lesId = [];
+var x = 0;
 
-function getCarre(monId)
-{
+function deleteId(monId) {
   var carre = document.getElementById(monId).id;
-  carre.addEventListener('click', changeCouleur(carre), false);
+  changeCouleur(carre);
+  for(var i = x; i >= 0; i--) {
+    if(lesId[i] === monId) {
+       lesId.splice(i, 1);
+    }
+  }
+  document.getElementById("id_carre").innerHTML =  lesId.join(", ");
 }
 
-function changeCouleur(id){
-  elem=document.getElementById(id);
-  elem.style.fill = 'blue';
-  alert(document.getElementById(id).style.fill);
+function getCarre(monId) {
+  var carre = document.getElementById(monId).id
+  changeCouleur(carre);
+  lesId.push(monId);
+  document.getElementById("id_carre").innerHTML =  lesId.join(", ");
 }
 
-function appel(monId)
-{
-  var id = monId;
-  if (document.getElementById(id).style.fill != "blue") {
-    getId(id);
-    getCarre(id);
+function changeCouleur(monId) {
+  elem = document.getElementById(monId);
+    if(elem.style.fill === 'red'){
+        elem.style.fill = 'black';
+    }
+    else{
+        elem.style.fill = 'red';
+    }
+}
+
+function appelFonctions(monId) {
+  if (document.getElementById(monId).style.fill != 'red') {
+    getCarre(monId);
+    x = x + 1;
+  }
+  else {
+    deleteId(monId);
+    x = x - 1;
   }
 }
 
-function clickButton(){
-}
-
-window.onload = function(){
-  clickButton();
-}
 </script>

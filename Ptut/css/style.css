@@ -1,16 +1,14 @@
 #map{
-   width: 40%;
+	width: 40%;
 }
 
 #map path{
-   fill: #FFF;
-   fill-opacity:0.1;
-   stroke: #B1181B;
-   stroke-width: 1px;
-
+	fill-opacity:0.1;
+	stroke: #B1181B;
+	stroke-width: 1px;
 }
 
 #map path:hover{
-   fill: black;
-   fill-opacity:0.5;
+	fill: black;
+	fill-opacity:0.5;
 }
