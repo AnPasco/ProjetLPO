@@ -102,7 +102,7 @@ if(!isset($_SESSION['en_nom'])){
 
         for($colonne = $debut; $colonne <= $fin ; $colonne++){
           ?>
-          <a id="carre_<?php echo $i?>- <?php echo $colonne ?>" xlink:title="carre_<?php echo $i?>-<?php echo $colonne ?>" onclick="getId(this.id);">
+          <a id="carre_<?php echo $i?>- <?php echo $colonne ?>" xlink:title="carre_<?php echo $i?>-<?php echo $colonne ?>" onclick="appelFonctions(this.id);">
             <path d="m <?php echo $margin_x + ($colonne * $taille_carre) ?>,<?php echo $margin_y + $i * $taille_carre ?> -0.14864,44.74187 45.03915,0.29728 -0.14864,-45.1878 z" />
             </a>
             <?php
@@ -112,9 +112,9 @@ if(!isset($_SESSION['en_nom'])){
       </svg>
     </div>
 
-    <p id="test"><?php echo 'Les carrés saisis sont les suivantes :'?></p>
+    <p><?php echo 'Les carrés saisis sont les suivantes :'?></p>
     <form method=post id=test2 name="test2">
-      <input type=text id="id_carre" size="60">
+      <input class=textarea id="test">
       <input type="submit" id="bouton" value = "OK"/>
     </form>
     <?php
