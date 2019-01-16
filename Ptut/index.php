@@ -16,4 +16,4 @@ require_once("include/header.inc.php");
 <?php
 
 require_once("include/footer.inc.php");
-require_once("js/javascript.php") ?>
+?>

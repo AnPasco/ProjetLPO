@@ -13,7 +13,7 @@ class CarreManager
     public function addCarre($carreNumEnquete, $carre_nom)
     {
         $requete = $this->db->prepare(
-            'INSERT INTO carre (en_num, carre_nom) VALUES ( :en_num, :carre_nom);');
+            'INSERT INTO carre (en_num, carre_nom) VALUES (:en_num, :carre_nom);');
 
         $requete->bindValue(':en_num', $carreNumEnquete);
         $requete->bindValue(':carre_nom', $carre_nom);

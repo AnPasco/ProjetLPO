@@ -9,8 +9,14 @@ if(!isset($_SESSION)){
 
 $db = new MyPDO();
 $carreManager = new CarreManager($db);
+$enqueteManager = new EnqueteManager($db);
 
-$_POST['lesId'];
+$carreNumEnquete = $enqueteManager->getNumByNom($_SESSION['en_nom']);
 
+foreach ($_POST['lesId'] as $carre) {
+   $carreManager->addCarre($carreNumEnquete,$carre);
+}
+
+var_dump($_POST['lesId']);
 
 ?>

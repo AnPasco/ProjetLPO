@@ -119,22 +119,26 @@ if (!isset($_SESSION['en_nom'])) {
             <p><?php echo 'Les carrés saisis sont les suivantes :' ?></p>
             <form method=post id=test2 name="test2">
                 <p id="id_carre" name="id_carre"></p>
-                <input type="submit" id="bouton" value="OK"/>
+                <input type="submit" id="bouton" value="OK" onclick="ajoutTab();"/>
             </form>
             <?php
 
         } else {
-            echo 'pas bon';
+            echo 'L\'ajout de l\'enquete n\'a pas fonctionné.';
             unset($_SESSION['en_nom']);
+            ?>
+            </br></br>
+            <input type="button" value="Ok" id="refresh" onclick="refresh();"/>
+            <?php
+
         }
     }
 } else {
-    $carre_nom = $_POST['id_carre'];
-
-    $carreNumEnquete = $enqueteManager->getNumByNom($_SESSION['en_nom']);
-    $carreManager->addCarre($carreNumEnquete, $carre_nom);
-    echo "ok";
-    unset($_SESSION['en_nom']);
+     echo "Ajout des carrés reussi.";
+     unset($_SESSION['en_nom']);
+     ?>
+     </br></br>
+     <input type="button" value="Ok" id="refresh" onclick="refresh();"/>
+     <?php
 }
-
 ?>
