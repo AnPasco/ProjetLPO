@@ -1,9 +1,9 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 16 jan. 2019 à 16:36
+-- Généré le :  mer. 16 jan. 2019 à 16:43
 -- Version du serveur :  5.7.23
 -- Version de PHP :  7.2.10
 
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `carte` (
 DROP TABLE IF EXISTS `enquetes`;
 CREATE TABLE IF NOT EXISTS `enquetes` (
   `en_num` int(11) NOT NULL AUTO_INCREMENT,
-  `en_nom` varchar(30) NOT NULL,
+  `en_nom` text NOT NULL,
   `oi_num` int(11) NOT NULL,
   `organisateur` int(11) NOT NULL,
   `proto_num` int(11) NOT NULL,
