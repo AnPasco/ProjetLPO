@@ -115,7 +115,7 @@ if(!isset($_SESSION['en_nom'])){
 
     <p><?php echo 'Les carrés saisis sont les suivantes :'?></p>
     <form method=post id=test2 name="test2">
-      <input class=textarea id="test" name='test'>
+      <p id="id_carre" name="id_carre"></p>
       <input type="submit" id="bouton" value = "OK"/>
     </form>
     <?php
@@ -126,7 +126,7 @@ if(!isset($_SESSION['en_nom'])){
   }
 }
 }else{
-   $carre_nom = $_POST['test'];
+   $carre_nom = $_POST['id_carre'];
 
    $CarreNumEnquete = $EnqueteManager->getNumByNom($_SESSION['en_nom']);
    $CarreManager->addCarre($CarreNumEnquete, $carre_nom);

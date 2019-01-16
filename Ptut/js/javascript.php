@@ -7,56 +7,54 @@ function ajouteEvent(objet, typeEvent, nomFonction, typePropagation){
   }
 }
 
-function displayId(id){
-  document.getElementById("test").value =  id;
-}
+var lesId = [];
+var x = 0;
 
-function deleteId(monId)
-{
+
+
+
+function deleteId(monId) {
   var carre = document.getElementById(monId).id;
   changeCouleur(carre);
-  document.getElementById("test").value =  "";
+  for(var i = x; i >= 0; i--) {
+    if(lesId[i] === monId) {
+       lesId.splice(i, 1);
+    }
+  }
+  document.getElementById("id_carre").innerHTML =  lesId.join(" ");
 }
 
-
-function getCarre(monId)
-{
-  var carre = document.getElementById(monId).id;
+function getCarre(monId) {
+  var carre = document.getElementById(monId).id
   changeCouleur(carre);
+  lesId.push(monId);
+  document.getElementById("id_carre").innerHTML =  lesId.join(" ");
 }
 
-function changeCouleur(id){
-  elem=document.getElementById(id);
-	if(elem.style.fill==='red'){
-		elem.style.fill = 'black';
-	}
-	else{
-		elem.style.fill = 'red';
-	}
+function changeCouleur(monId) {
+  elem = document.getElementById(monId);
+    if(elem.style.fill === 'red'){
+        elem.style.fill = 'black';
+    }
+    else{
+        elem.style.fill = 'red';
+    }
 }
 
-var idTab = [];
-
-function appelFonctions(monId)
-{
-
-  var contenant = document.getElementById("test").value;
-  if (idTab[0] == null){
+function appelFonctions(monId) {
+  if (document.getElementById(monId).style.fill != 'red') {
     getCarre(monId);
-    displayId(monId);
+    x = x + 1;
   }
   else {
-  if (idTab[idTab.length - 1] == monId) {
     deleteId(monId);
-  }
-  else {
-
-    getCarre(idTab[idTab.length - 1]);
-    getCarre(monId);
-    displayId(monId);
+    x = x - 1;
   }
 }
-  idTab.push(monId);
-}
 
+function ajoutTab(lesId){
+  if(lesId != ""){
+    $.post("./ajax/ajoutTab.ajax.php", { lesId: lesId });
+  }
+}
 </script>
