@@ -1,21 +1,18 @@
 <?php
 class CarreManager{
-	private $dbo;
+	private $db;
 
 	public function __construct($db){
 		$this->db=$db;
 	}
 
-   public function addCarre($CarreNumEnquete){
+
+   public function addCarre($CarreNumEnquete, $carre_nom){
       $requete = $this->db->prepare(
-	      'INSERT INTO carre (en_num, carte_num, enqueteur, etat, KMZ_num)
-         VALUES ( :en_num, :carte_num, :enqueteur, :etat, :KMZ_num);');
+	      'INSERT INTO carre (en_num, carre_nom) VALUES ( :en_num, :carre_nom);');
 
       $requete->bindValue(':en_num',$CarreNumEnquete);
-		$requete->bindValue(':carte_num', '2');
-		$requete->bindValue(':enqueteur', '2');
-		$requete->bindValue(':etat', '2');
-		$requete->bindValue(':KMZ_num', '2');
+		$requete->bindValue(':carre_nom', $carre_nom);
 
       $retour=$requete->execute();
 		return $retour;

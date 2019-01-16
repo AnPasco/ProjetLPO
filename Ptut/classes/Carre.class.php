@@ -40,14 +40,14 @@ class Carre {
 		return $this->etat_num;
 	}
 
-   public function setCarreNom(){
+   public function setCarreNom($carre_nom){
       $this->carre_nom=$carre_nom;
    }
 
    public function getCarreNom(){
       return $this->carre_nom;
    }
-   
+
    public function setEnqueteNum($en_num){
 		$this->en_num=$en_num;
 	}

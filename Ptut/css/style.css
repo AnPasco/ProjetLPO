@@ -3,14 +3,13 @@
 }
 
 #map path{
-
-   fill-opacity:0.1;
+   fill-opacity:0.3;
    stroke: #B1181B;
    stroke-width: 1px;
 
 }
 
 #map path:hover{
-   fill: green;
+   fill: black;
    fill-opacity:0.5;
 }

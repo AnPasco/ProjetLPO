@@ -121,24 +121,12 @@ if(!isset($_SESSION['en_nom'])){
 
   }else{
     echo'pas bon';
+    unset($_SESSION['en_nom']);
   }
 }
 }else{
-	$CarreManager = new CarreManager($pdo);
-
-	echo $_SESSION['en_nom'];
-	$CarreNumEnquete = $EnqueteManager->getNumByNom($_SESSION['en_nom']);
-	echo $CarreNumEnquete;
-	$retour = $CarreManager->addCarre($CarreNumEnquete);
-
-	if($retour){
-		echo "ok";
-		unset($_SESSION['en_nom']);
-	}else{
-		echo "pas ok";
-		unset($_SESSION['en_nom']);
-	}
-
+   echo "ok";
+   unset($_SESSION['en_nom']);
 }
 
 ?>
