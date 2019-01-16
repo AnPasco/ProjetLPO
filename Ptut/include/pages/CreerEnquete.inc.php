@@ -5,6 +5,7 @@ $OiseauManager = new OiseauManager($pdo);
 $AdherentManager = new AdherentManager($pdo);
 $ProtocoleManager = new ProtocoleManager($pdo);
 $EnqueteManager = new EnqueteManager($pdo);
+$CarreManager = new CarreManager($pdo);
 $listeOiseau = $OiseauManager->getAllOiseaux();
 $listeAdherent = $AdherentManager->getAllAdherent();
 $listeProtocole = $ProtocoleManager->getAllProtocole();
@@ -114,7 +115,7 @@ if(!isset($_SESSION['en_nom'])){
 
     <p><?php echo 'Les carrés saisis sont les suivantes :'?></p>
     <form method=post id=test2 name="test2">
-      <input class=textarea id="test">
+      <input class=textarea id="test" name='test'>
       <input type="submit" id="bouton" value = "OK"/>
     </form>
     <?php
@@ -125,6 +126,10 @@ if(!isset($_SESSION['en_nom'])){
   }
 }
 }else{
+   $carre_nom = $_POST['test'];
+
+   $CarreNumEnquete = $EnqueteManager->getNumByNom($_SESSION['en_nom']);
+   $CarreManager->addCarre($CarreNumEnquete, $carre_nom);
    echo "ok";
    unset($_SESSION['en_nom']);
 }

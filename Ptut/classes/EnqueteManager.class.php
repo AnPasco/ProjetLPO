@@ -26,10 +26,12 @@ class EnqueteManager{
 	  $requete = $this->db->prepare(
 		  'SELECT en_num FROM enquetes WHERE en_nom = :nom');
 
-		$requete->bindValue(':nom', $nom);
+		$requete->bindValue(':nom', $nom, PDO::PARAM_STR);
 
-		$retour=$requete->execute();
-		return $retour;
+		$requete->execute();
+		$EnqueteNum = $requete->fetch(PDO::FETCH_ASSOC);
+		
+		return $EnqueteNum['en_num'];
   }
 }
 ?>
