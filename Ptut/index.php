@@ -6,9 +6,9 @@ require_once("include/header.inc.php");
 
 ?>
 <div id="corps">
-	<?php
-	require_once("include/pages/CreerEnquete.inc.php");
-	?>
+    <?php
+    require_once("include/pages/CreerEnquete.inc.php");
+    ?>
 </div>
 
 

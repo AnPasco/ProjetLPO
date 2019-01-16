@@ -1,23 +1,28 @@
 <?php
-class OiseauManager{
-	private $dbo;
 
-	public function __construct($db){
-		$this->db=$db;
-	}
+class OiseauManager
+{
+    private $db;
 
-	public function getAllOiseaux(){
-	    $listeOiseau = array();
+    public function __construct($db)
+    {
+        $this->db = $db;
+    }
 
-		$sql = 'SELECT oi_num, esp_nom, esp_nomBinominal, famille_nom, famille_nomBinominal FROM oiseau';
-		$requete = $this->db->prepare($sql);
-		$requete->execute();
+    public function getAllOiseaux()
+    {
+        $listeOiseau = array();
 
-      while ($Oiseau = $requete->fetch(PDO::FETCH_OBJ))
-			$listeOiseau[] = new Oiseau($Oiseau);
+        $sql = 'SELECT oi_num, esp_nom, esp_nomBinominal, famille_nom, famille_nomBinominal FROM oiseau';
+        $requete = $this->db->prepare($sql);
+        $requete->execute();
 
-		$requete->closeCursor();
-		return $listeOiseau;
-	}
+        while ($oiseau = $requete->fetch(PDO::FETCH_OBJ))
+            $listeOiseau[] = new Oiseau($oiseau);
+
+        $requete->closeCursor();
+        return $listeOiseau;
+    }
 }
+
 ?>

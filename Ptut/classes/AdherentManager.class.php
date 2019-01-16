@@ -1,23 +1,28 @@
 <?php
-class AdherentManager{
-	private $dbo;
 
-	public function __construct($db){
-		$this->db=$db;
-	}
+class AdherentManager
+{
+    private $db;
 
-	public function getAllAdherent(){
-	     $listeAdherent = array();
+    public function __construct($db)
+    {
+        $this->db = $db;
+    }
 
-			$sql = 'SELECT id, ad_num, ad_nom, ad_prenom, ad_tel FROM adherent';
-			$requete = $this->db->prepare($sql);
-			$requete->execute();
+    public function getAllAdherent()
+    {
+        $listeAdherent = array();
 
-         while ($Adherent = $requete->fetch(PDO::FETCH_OBJ))
-						$listeAdherent[] = new Adherent($Adherent);
+        $sql = 'SELECT id, ad_num, ad_nom, ad_prenom, ad_tel FROM adherent';
+        $requete = $this->db->prepare($sql);
+        $requete->execute();
 
-			$requete->closeCursor();
-			return $listeAdherent;
-		}
+        while ($adherent = $requete->fetch(PDO::FETCH_OBJ))
+            $listeAdherent[] = new Adherent($adherent);
+
+        $requete->closeCursor();
+        return $listeAdherent;
+    }
 }
+
 ?>
