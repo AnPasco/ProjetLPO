@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 17 jan. 2019 à 07:49
+-- Généré le :  jeu. 17 jan. 2019 à 08:07
 -- Version du serveur :  5.7.23
 -- Version de PHP :  7.2.10
 
@@ -111,14 +111,16 @@ CREATE TABLE IF NOT EXISTS `enquetes` (
   KEY `enquete_ibfk_1` (`oi_num`),
   KEY `enquete_ibfk_2` (`organisateur`),
   KEY `enquete_ibfk_3` (`proto_num`)
-) ENGINE=MyISAM AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `enquetes`
 --
 
 INSERT INTO `enquetes` (`en_num`, `en_nom`, `oi_num`, `organisateur`, `proto_num`, `date_deb`, `date_fin`) VALUES
-(1, 'FIRST TEST', 1, 1, 1, '2019-01-15', '2019-01-15');
+(1, 'FIRST TEST', 1, 1, 1, '2019-01-15', '2019-01-15'),
+(44, 'frerfrefre', 1, 1, 1, '2019-01-17', '2019-01-15'),
+(45, 'zczeze', 1, 1, 1, '2019-01-17', '2019-01-25');
 
 -- --------------------------------------------------------
 
@@ -141,21 +143,6 @@ INSERT INTO `etat` (`etat_num`, `description`) VALUES
 (1, 'pas réservé'),
 (2, 'réservé'),
 (3, 'indisponible');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `gallery`
---
-
-DROP TABLE IF EXISTS `gallery`;
-CREATE TABLE IF NOT EXISTS `gallery` (
-  `img_Description` text NOT NULL,
-  `img_Nom` text NOT NULL,
-  `img_Type` text NOT NULL,
-  `img_Num` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`img_Num`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
