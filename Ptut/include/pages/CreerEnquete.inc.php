@@ -55,16 +55,20 @@ if (!isset($_SESSION['en_nom'])) {
             </br></br>
             <?php echo 'Date de Fin : '; ?>
             <input type="date" name="date_fin" id="$date_fin" size="15">
+
             </br></br>
             <input type="submit" value="Valider"/>
-        </form>
+            </form>
         <?php
     } else {
+
+
+
         $enquete = new Enquete($_POST);
         $ajout = $enqueteManager->addEnquete($enquete);
         $_SESSION['en_nom'] = $_POST['en_nom'];
 
-        if ($ajout) {
+        if ($ajout && ($_POST['date_fin'] >= $_POST['date_deb'])) {
             $intervales = array(6, 13,
                 3, 14,
                 1, 15,
