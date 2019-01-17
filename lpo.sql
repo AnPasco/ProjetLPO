@@ -1,9 +1,9 @@
-﻿-- phpMyAdmin SQL Dump
+-- phpMyAdmin SQL Dump
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 16 jan. 2019 à 17:48
+-- Généré le :  jeu. 17 jan. 2019 à 07:49
 -- Version du serveur :  5.7.23
 -- Version de PHP :  7.2.10
 
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `adherent` (
   `ad_tel` char(14) NOT NULL,
   PRIMARY KEY (`ad_num`),
   KEY `adherent_ibfk_1` (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=524 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=679 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `adherent`
@@ -46,7 +46,9 @@ CREATE TABLE IF NOT EXISTS `adherent` (
 INSERT INTO `adherent` (`ID`, `ad_num`, `ad_nom`, `ad_prenom`, `ad_tel`) VALUES
 (1, 23, 'Pascaud', 'Antoine', '215487895'),
 (2, 523, 'Hanotel', 'Hugo', '215456895'),
-(3, 210, 'Tricard', 'Aurélien', '245456895');
+(3, 210, 'Tricard', 'Aurélien', '245456895'),
+(4, 678, 'Amphoux', 'Gabriel', '0225653212'),
+(5, 654, 'Duraysseix', 'Romain', '0214154526');
 
 -- --------------------------------------------------------
 
@@ -854,7 +856,7 @@ CREATE TABLE IF NOT EXISTS `oiseau` (
   `famille_nom` varchar(100) NOT NULL,
   `famille_nomBinominal` varchar(100) NOT NULL,
   PRIMARY KEY (`oi_num`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `oiseau`
@@ -863,7 +865,8 @@ CREATE TABLE IF NOT EXISTS `oiseau` (
 INSERT INTO `oiseau` (`oi_num`, `esp_nom`, `esp_nomBinominal`, `famille_nom`, `famille_nomBinominal`) VALUES
 (1, 'Aigle', 'Aquila', 'Rapace', 'Rapacea'),
 (2, 'Aigle Royale', 'Aquila Royaleo', 'Rapace', 'Rapacea'),
-(3, 'Pie Vert', 'Pier', 'Petit oiseau', 'Petito oiseal');
+(3, 'Pie Vert', 'Pier', 'Petit oiseau', 'Petito oiseal'),
+(4, 'Pélican', 'Pélicanos', 'Oiseau de mer', 'Oisal de mare');
 
 -- --------------------------------------------------------
 
@@ -878,7 +881,16 @@ CREATE TABLE IF NOT EXISTS `protocole` (
   `en_nom` varchar(30) NOT NULL,
   `description` text NOT NULL,
   PRIMARY KEY (`proto_num`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `protocole`
+--
+
+INSERT INTO `protocole` (`proto_num`, `proto_fichier`, `en_nom`, `description`) VALUES
+(1, 'protocole_Aigle', 'protocole_Aigle', 'Le protocole des aigles ! '),
+(2, 'protocole_Pic_Vert', 'protocole_Pic_Vert', 'Le protocole des Pic Vert !'),
+(3, 'protocole_Aigle_Royale', 'protocole_Aigle_Royale', 'Le protocole des Aigles Royales !');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
