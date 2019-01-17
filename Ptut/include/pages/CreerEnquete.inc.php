@@ -138,7 +138,7 @@ if (!isset($_SESSION['en_nom'])) {
         }
     }
 } else {
-     echo "Ajout des carrés reussi.";
+     echo "Enquête enregistrée avec succès.";
      unset($_SESSION['en_nom']);
      ?>
      </br></br>
