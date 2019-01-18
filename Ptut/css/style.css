@@ -10,13 +10,13 @@ h1{
     border-bottom: 2px black solid;
     font-family: "Maiandra GD";
     color: white;
-    background-color: #009f9f;
+    background-color: #1f6c9f;
 }
 
 p{
     font-size: 25px;
     font-weight: bold;
-    box-shadow: 0 4px 0 black, 0 7px 4px rgba(0,0,0,.5);
+    text-decoration: underline;
     font-family: "Maiandra GD";
     margin: 5px 0px 15px 0px;
 }
@@ -96,15 +96,24 @@ input[type="date"]:before {
     width: 150px;
     color: white;
     font-weight: bold;
-    background-color: #009f9f;
+    position: relative;
+    border-radius: 3px;
+    background-color: #228ac8;
     cursor: pointer;
-    transition: 0.3s;
-    box-shadow: 0 4px 0 #007777, 0 7px 4px rgba(0,0,0,.5);
+    transition: all .0923333333s;
+    box-shadow: 0 4px 0 #1f6c9f, 0 7px 4px rgba(0,0,0,.5);
 }
 
 #submit:hover{
-    background-color: #007777;
-    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.24);
+    background-color: #35abff;
+}
+
+#submit:active{
+    -ms-transform: translateY(7px);
+    -webkit-transform: translateY(7px);
+    transform: translateY(7px);/*Move down*/
+    border-bottom: none;/*disappears*/
+    box-shadow: none;
 }
 
 
