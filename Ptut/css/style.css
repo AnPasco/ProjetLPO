@@ -139,6 +139,12 @@ input[type="date"]:before {
     margin: 5px 0px 15px 0px;
 }
 
+
+.checkedCarre{
+    margin-left: 2%;
+}
+
+
 #refresh{
     font-size: 30px;
     width: 150px;
@@ -163,3 +169,5 @@ input[type="date"]:before {
     border-bottom: none; /*disappears*/
     box-shadow: none;
 }
+
+

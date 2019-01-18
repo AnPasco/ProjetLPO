@@ -134,34 +134,40 @@ if (!isset($_SESSION['en_nom'])) {
                 </svg>
             </div>
 
-            <p><?php echo 'Les carrés saisis sont les suivantes :' ?></p>
-            <form method=post id=test2 name="test2">
-                <label id="id_carre" name="id_carre"></label>
-                </br></br>
-                <input type="submit" class="submit" value="OK" onclick="ajoutTab();"/>
-            </form>
+            <div class="checkedCarre">
+                <p><?php echo 'Les carrés saisis sont les suivantes :' ?></p>
+                <form method=post id=test2 name="test2">
+                    <label id="id_carre" name="id_carre"></label>
+                    </br></br>
+                    <input type="submit" class="submit" value="OK" onclick="ajoutTab();"/>
+                </form>
+            </div>
             <?php
 
         } else {
             ?>
-            <label class="labelSuccess">L'ajout de l'enquete n'a pas fonctionné.</label>'
-            <?php
-            unset($_SESSION['en_nom']);
-            ?>
-            </br></br>
-            <input type="button" value="Ok" id="refresh" onclick="refresh();"/>
+            <div class="checkedCarre">
+                <label class="labelSuccess">L'ajout de l'enquete n'a pas fonctionné.</label>'
+                <?php
+                unset($_SESSION['en_nom']);
+                ?>
+                </br></br>
+                <input type="button" value="Ok" id="refresh" onclick="refresh();"/>
+            </div>
             <?php
 
         }
     }
 } else {
     ?>
-    <label class="labelSuccess">Enquête enregistrée avec succès.</label>
-    <?php
-    unset($_SESSION['en_nom']);
-    ?>
-    </br></br>
-    <input type="button" value="Ok" id="refresh" onclick="refresh();"/>
+    <div class="checkedCarre">
+        <label class="labelSuccess">Enquête enregistrée avec succès.</label>
+        <?php
+        unset($_SESSION['en_nom']);
+        ?>
+        </br></br>
+        <input type="button" value="Ok" id="refresh" onclick="refresh();"/>
+    </div>
     <?php
 }
 ?>
