@@ -1,4 +1,7 @@
 <h1>Créer une enquête</h1>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+
 <?php
 $pdo = new Mypdo();
 $oiseauManager = new OiseauManager($pdo);
@@ -13,55 +16,66 @@ $listeProtocole = $protocoleManager->getAllProtocole();
 if (!isset($_SESSION['en_nom'])) {
     if (empty($_POST['en_nom']) || empty($_POST['oi_num']) || empty($_POST['organisateur'])
         || empty($_POST['proto_num']) || empty($_POST['date_deb']) || empty($_POST['date_fin'])) { ?>
-        <form action="index.php" id="insert" method="post">
-            <?php
-            echo 'Nom de l\'enquête : ';
-            ?>
-            <input type="text" name="en_nom" id="$en_nom" size="20">
-            </br></br>
-            <?php echo 'Nom de l\'oiseau : '; ?>
-            <select size="1" name="oi_num">
-                <?php
-                foreach ($listeOiseau as $oiseau) { ?>
-                    <option value="<?php echo $oiseau->getOiseauNum(); ?>">
-                        <?php echo $oiseau->getEspeceNom(); ?>
-                    </option>
-                <?php } ?>
-            </select>
-            </br></br>
-            <?php echo 'Nom de l\'organisateur : '; ?>
-            <select size="1" name="organisateur">
-                <?php
-                foreach ($listeAdherent as $adherent) { ?>
-                    <option value="<?php echo $adherent->getIdPersonne(); ?>">
-                        <?php echo $adherent->getNomAdherent() . " ";
-                        echo $adherent->getPrenomAdherent(); ?>
-                    </option>
-                <?php } ?>
-            </select>
-            </br></br>
-            <?php echo 'Protocole : '; ?>
-            <select size="1" name="proto_num">
-                <?php
-                foreach ($listeProtocole as $protocole) { ?>
-                    <option value="<?php echo $protocole->getNumeroProtocole(); ?>">
-                        <?php echo $protocole->getEnqueteNom(); ?>
-                    </option>
-                <?php } ?>
-            </select>
-            </br></br>
-            <?php echo 'Date de début : '; ?>
-            <input type="date" name="date_deb" id="$date_deb" size="15" value= <?php echo date("Y-m-d") ?>>
-            </br></br>
-            <?php echo 'Date de Fin : '; ?>
-            <input type="date" name="date_fin" id="$date_fin" size="15">
-
-            </br></br>
-            <input type="submit" value="Valider"/>
+        <div id="form">
+            <form action="index.php" id="insert" method="post">
+                <div id="formLeft">
+                    <div id="enqueteName">
+                        <p>Nom de l'enquête : </p>
+                        <input type="text" name="en_nom" id="en_nom" size="20" class="choose">
+                        </br></br>
+                    </div>
+                    <div id="oiseauName">
+                        <p>Nom de l'oiseau : </p>
+                        <select size="1" name="oi_num" class="choose">
+                            <?php
+                            foreach ($listeOiseau as $oiseau) { ?>
+                                <option value="<?php echo $oiseau->getOiseauNum(); ?>">
+                                    <?php echo $oiseau->getEspeceNom(); ?>
+                                </option>
+                            <?php } ?>
+                        </select>
+                        </br></br>
+                    </div>
+                    <p>Nom de l'organisateur : </p>
+                    <select size="1" name="organisateur" class="choose">
+                        <?php
+                        foreach ($listeAdherent as $adherent) { ?>
+                            <option value="<?php echo $adherent->getIdPersonne(); ?>">
+                                <?php echo $adherent->getNomAdherent() . " ";
+                                echo $adherent->getPrenomAdherent(); ?>
+                            </option>
+                        <?php } ?>
+                    </select>
+                    </br></br>
+                </div>
+                <div id="formRight">
+                    <p>Protocole : </p>
+                    <select size="1" name="proto_num" class="choose">
+                        <?php
+                        foreach ($listeProtocole as $protocole) { ?>
+                            <option value="<?php echo $protocole->getNumeroProtocole(); ?>">
+                                <?php echo $protocole->getEnqueteNom(); ?>
+                            </option>
+                        <?php } ?>
+                    </select>
+                    </br></br>
+                    <p>Date de début : </p>
+                    <input type="date" name="date_deb" id="date_deb" size="15" class="choose"
+                           value= <?php echo date("Y-m-d") ?>>
+                    </br></br>
+                    <p>Date de fin : </p>
+                    <input type="date" name="date_fin" id="date_fin" size="15" class="choose"
+                    </br></br>
+                    </br></br>
+                </div>
+                <div id="button">
+                    <input type="submit" class="submit" value="Valider"/>
+                </div>
             </form>
+        </div>
+
         <?php
     } else {
-
 
 
         $enquete = new Enquete($_POST);
@@ -120,29 +134,40 @@ if (!isset($_SESSION['en_nom'])) {
                 </svg>
             </div>
 
-            <p><?php echo 'Les carrés saisis sont les suivantes :' ?></p>
-            <form method=post id=test2 name="test2">
-                <p id="id_carre" name="id_carre"></p>
-                <input type="submit" id="bouton" value="OK" onclick="ajoutTab();"/>
-            </form>
+            <div class="checkedCarre">
+                <p><?php echo 'Les carrés saisis sont les suivantes :' ?></p>
+                <form method=post id=test2 name="test2">
+                    <label id="id_carre" name="id_carre"></label>
+                    </br></br>
+                    <input type="submit" class="submit" value="OK" onclick="ajoutTab();"/>
+                </form>
+            </div>
             <?php
 
         } else {
-            echo 'L\'ajout de l\'enquete n\'a pas fonctionné.';
-            unset($_SESSION['en_nom']);
             ?>
-            </br></br>
-            <input type="button" value="Ok" id="refresh" onclick="refresh();"/>
+            <div class="checkedCarre">
+                <label class="labelSuccess">L'ajout de l'enquete n'a pas fonctionné.</label>'
+                <?php
+                unset($_SESSION['en_nom']);
+                ?>
+                </br></br>
+                <input type="button" value="Ok" id="refresh" onclick="refresh();"/>
+            </div>
             <?php
 
         }
     }
 } else {
-     echo "Enquête enregistrée avec succès.";
-     unset($_SESSION['en_nom']);
-     ?>
-     </br></br>
-     <input type="button" value="Ok" id="refresh" onclick="refresh();"/>
-     <?php
+    ?>
+    <div class="checkedCarre">
+        <label class="labelSuccess">Enquête enregistrée avec succès.</label>
+        <?php
+        unset($_SESSION['en_nom']);
+        ?>
+        </br></br>
+        <input type="button" value="Ok" id="refresh" onclick="refresh();"/>
+    </div>
+    <?php
 }
 ?>
