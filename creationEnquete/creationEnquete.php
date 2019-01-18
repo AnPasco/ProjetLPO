@@ -20,7 +20,11 @@ public function creationEnquete() {
    /*if (!current_user_can('manage_options')) {
         wp_die(__('Vous n\'avez pas les droits pour accéder à cette page.'));
     }*/
-   include(sprintf("%s/tout.php", dirname(__FILE__)));
+
+    include(sprintf("%s/tout.php", dirname(__FILE__)));
+		//include(sprintf("%s/ajoutTab.ajax.php", dirname(__FILE__)));
+		
+
 }
 
 }
