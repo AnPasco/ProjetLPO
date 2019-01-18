@@ -69,7 +69,7 @@ if (!isset($_SESSION['en_nom'])) {
                     </br></br>
                 </div>
                 <div id="button">
-                    <input type="submit" id="submit" value="Valider"/>
+                    <input type="submit" class="submit" value="Valider"/>
                 </div>
             </form>
         </div>
@@ -136,13 +136,16 @@ if (!isset($_SESSION['en_nom'])) {
 
             <p><?php echo 'Les carrés saisis sont les suivantes :' ?></p>
             <form method=post id=test2 name="test2">
-                <p id="id_carre" name="id_carre"></p>
-                <input type="submit" id="bouton" value="OK" onclick="ajoutTab();"/>
+                <label id="id_carre" name="id_carre"></label>
+                </br></br>
+                <input type="submit" class="submit" value="OK" onclick="ajoutTab();"/>
             </form>
             <?php
 
         } else {
-            echo 'L\'ajout de l\'enquete n\'a pas fonctionné.';
+            ?>
+            <label class="labelSuccess">L'ajout de l'enquete n'a pas fonctionné.</label>'
+            <?php
             unset($_SESSION['en_nom']);
             ?>
             </br></br>
@@ -152,7 +155,9 @@ if (!isset($_SESSION['en_nom'])) {
         }
     }
 } else {
-    echo "Enquête enregistrée avec succès.";
+    ?>
+    <label class="labelSuccess">Enquête enregistrée avec succès.</label>
+    <?php
     unset($_SESSION['en_nom']);
     ?>
     </br></br>
