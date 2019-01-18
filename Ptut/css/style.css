@@ -1,16 +1,130 @@
-#map{
-   width: 40%;
+body{
+    margin: 0px;
 }
 
-#map path{
-   fill: #FFF;
-   fill-opacity:0.1;
-   stroke: #B1181B;
-   stroke-width: 1px;
+h1{
+    text-align: center;
+    font-size: 40px;
+    margin: 0px 0px 20px 0px;
+    padding: 10px 0px 10px 0px;
+    border-bottom: 2px black solid;
+    font-family: "Maiandra GD";
+    color: white;
+    background-color: #009f9f;
+}
+
+p{
+    font-size: 25px;
+    font-weight: bold;
+    box-shadow: 0 4px 0 black, 0 7px 4px rgba(0,0,0,.5);
+    font-family: "Maiandra GD";
+    margin: 5px 0px 15px 0px;
+}
+
+
+#enqueteName{
+    position: relative;
+    bottom: 25px;
+}
+#oiseauName{
+    position: relative;
+    bottom: 25px;
+}
+
+
+#form{
+    margin-left: 30px;
+}
+
+.choose{
+    width: 250px;
+    font-size: 20px;
+    box-shadow: 0px 0px 2px #C0C0C0 inset;
+    border-radius: 8px;
+}
+
+#formLeft{
+    float: left;
+    margin: 25px 10px 10% 24%;
+    width: 25%;
+}
+#formRight{
+    float: right;
+    margin-right: 24%;
+    width: 25%;
+    margin-left: 10px;
+}
+
+/*//////////////////////////////////////Icon Calendar////////////////////////////////////////////////////////////*/
+
+input[type="date"] {
+    position: relative;
+    padding: 10px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: transparent;
+    background: none;
+    z-index: 1;
+}
+
+input[type="date"]:before {
+    color: transparent;
+    background: none;
+    display: block;
+    font-family: 'FontAwesome';
+    content: '\f073';
+    width: 15px;
+    height: 20px;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    color: #999999;
+}
+
+
+#button{
+    width:150px;
+    height: 50px;
+    float: right;
+    margin-right: 100px;
+}
+
+
+#submit{
+    font-size: 30px;
+    width: 150px;
+    color: white;
+    font-weight: bold;
+    background-color: #009f9f;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 0 #007777, 0 7px 4px rgba(0,0,0,.5);
+}
+
+#submit:hover{
+    background-color: #007777;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.24);
+}
+
+
+
+/*////////////////////////////////////MAP////////////////////////////////////*/
+
+
+
+#map {
+    width: 40%;
+}
+
+#map path {
+    fill-opacity: 0.3;
+    stroke: #B1181B;
+    stroke-width: 1px;
 
 }
 
-#map path:hover{
-   fill: black;
-   fill-opacity:0.5;
+#map path:hover {
+    fill: black;
+    fill-opacity: 0.5;
 }

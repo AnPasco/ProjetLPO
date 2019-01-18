@@ -2,43 +2,41 @@
 
 class EnqueteManager
 {
-    private $dbo;
+    private $db;
 
     public function __construct($db)
     {
-        $this->dbo = $db;
+        $this->db = $db;
     }
 
-    public function addEnquete($Enquete)
+    public function addEnquete($enquete)
     {
-        $requete = $this->dbo->prepare(
+        $requete = $this->db->prepare(
             'INSERT INTO enquetes (en_nom, oi_num, organisateur, proto_num, date_deb, date_fin)
          VALUES (:en_nom, :oi_num, :organisateur, :proto_num, :date_deb, :date_fin);');
 
-        $requete->bindValue(':en_nom', $Enquete->getEnqueteNom());
-        $requete->bindValue(':oi_num', $Enquete->getOiseauNum());
-        $requete->bindValue(':organisateur', $Enquete->getOrganisateur());
-        $requete->bindValue(':proto_num', $Enquete->getProtocoleNum());
-        $requete->bindValue(':date_deb', $Enquete->getDateDebut());
-        $requete->bindValue(':date_fin', $Enquete->getDateFin());
+        $requete->bindValue(':en_nom', $enquete->getEnqueteNom());
+        $requete->bindValue(':oi_num', $enquete->getOiseauNum());
+        $requete->bindValue(':organisateur', $enquete->getOrganisateur());
+        $requete->bindValue(':proto_num', $enquete->getProtocoleNum());
+        $requete->bindValue(':date_deb', $enquete->getDateDebut());
+        $requete->bindValue(':date_fin', $enquete->getDateFin());
 
         $retour = $requete->execute();
         return $retour;
     }
 
-    public function getAllEnquete()
+    public function getNumByNom($nom)
     {
-        $listeEnquete = array();
+        $requete = $this->db->prepare(
+            'SELECT en_num FROM enquetes WHERE en_nom = :nom');
 
-        $sql = 'SELECT en_num, en_nom, oi_num, organisateur, proto_num, date_deb, date_fin FROM enquetes';
-        $request = $this->dbo->prepare($sql);
-        $request->execute();
+        $requete->bindValue(':nom', $nom, PDO::PARAM_STR);
 
-        while ($enquete = $request->fetch(PDO::FETCH_OBJ))
-            $listeEnquete[] = new Enquete($enquete);
+        $requete->execute();
+        $enqueteNum = $requete->fetch(PDO::FETCH_ASSOC);
 
-        $request->closeCursor();
-        return $listeEnquete;
+        return $enqueteNum['en_num'];
     }
 }
 

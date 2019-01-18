@@ -2,14 +2,9 @@
 <div id="footer">
 <br />
 </div>
-<script>
 
-function getId(monId)
-{
-  var id=monId;
-  document.getElementById("test").innerHTML = document.getElementById("test").innerHTML + " " + id + ",";
-  document.getElementById("ids").value = document.getElementById("ids").value + id + ",";
-}
-</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/javascript.js"></script>
+
 </body>
 </html>
