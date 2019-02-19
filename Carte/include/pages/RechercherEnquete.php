@@ -67,10 +67,13 @@ if (empty($_POST['text'])) {
                         $carre_nom = "carre_" . $i . "- " . $colonne;
 
                         foreach ($listeCarre as $carre) {
-                            if ($carre->getCarreNom() == $carre_nom) { ?>
-                                <a onclick="document.getElementById('text').value = this.id;"
+                            if ($carre->getCarreNom() == $carre_nom) {
+                                $carre = $carreManager->getCarre($carre_nom);
+                                $enqueteur = $carre->getEnqueteur();?>
+
+                                <a <?php if($enqueteur==null){ ?> onclick="document.getElementById('text').value = this.id;" <?php } ?>
                                    id="<?php echo $carre_nom ?>" xlink:title="<?php echo $carre_nom ?>">
-                                    <path d="m <?php echo $margin_x + ($colonne * $taille_carre) ?>,<?php echo $margin_y + $i * $taille_carre ?> -0.14864,44.74187 45.03915,0.29728 -0.14864,-45.1878 z"/>
+                                    <path <?php if($enqueteur!=null){ ?> class="rouge" <?php }?> d="m <?php echo $margin_x + ($colonne * $taille_carre) ?>,<?php echo $margin_y + $i * $taille_carre ?> -0.14864,44.74187 45.03915,0.29728 -0.14864,-45.1878 z"/>
                                 </a>
                                 <?php
                             }
@@ -91,14 +94,7 @@ if (empty($_POST['text'])) {
     $carre = $carreManager->getCarre($_POST['text']);
     $enqueteur = $carre->getEnqueteur();
 
-    if ($enqueteur != null) {
-        $adherentManager = new AdherentManager($pdo);
-        $adherent = $adherentManager->getAdherent($enqueteur); ?>
-        <p>Le carre que vous avez sélectionné, est déjà attribué, veuillez choisir un autre carre ou contacter
-            M/Mme <?php echo $adherent->getNomAdherent() ?></p>
-        <p>Voici son numéro de téléphone : <?php echo $adherent->getTelephoneAdherent() ?></p>
-        <p>Voici son adresse mail : <?php echo $adherentManager->getMail($adherent->getNumeroAdherent()) ?></p>
-    <?php } else {
+    if ($enqueteur == null){
         $carreManager = new CarreManager($pdo);
         $EnqueteManager = new EnqueteManager($pdo);
         $CarteManager = new CarteManager($pdo);

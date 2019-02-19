@@ -82,3 +82,8 @@ label {
     fill: black;
     fill-opacity: 0.5;
 }
+
+.rouge{
+    fill: #B1181B;
+    fill-opacity: 100%;
+}
