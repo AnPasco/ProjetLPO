@@ -3341,7 +3341,7 @@ if (empty($_POST['text'])) {
                                    id="<?php echo $carre_nom ?>" style="cursor: pointer;" xlink:title="<?php echo $carre_nom ?>">
                                     <path <?php if($enqueteur!=null){ ?> style="fill: #B1181B;
                                     fill-opacity: 100%;
-                                    cursor: autoè;" <?php }?> d="m <?php echo $margin_x + ($colonne * $taille_carre) ?>,<?php echo $margin_y + $i * $taille_carre ?> -0.14864,44.74187 45.03915,0.29728 -0.14864,-45.1878 z"/>
+                                    cursor: auto;" <?php }?> d="m <?php echo $margin_x + ($colonne * $taille_carre) ?>,<?php echo $margin_y + $i * $taille_carre ?> -0.14864,44.74187 45.03915,0.29728 -0.14864,-45.1878 z"/>
                                 </a>
                                 <?php
                             }
